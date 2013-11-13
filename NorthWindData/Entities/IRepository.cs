@@ -5,9 +5,9 @@ namespace NorthWindData.Entities
 {
     interface IRepository : IDisposable
     {
-        IEnumerable<Category> GetCategories(int catid);
-        IEnumerable<Product> GetProductsByCategory(int catid);
-        IEnumerable<Order_Detail> GetOrdersByProduct(int proid);
+        List<Category> GetCategories();
+        List<Product> GetProductsByCategory(int catid);
+        List<int> GetOrdersByProduct(int proid);
         int GetQuantityByOrder(int ordnum, int proid);
     }
 }

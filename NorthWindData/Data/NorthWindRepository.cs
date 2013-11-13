@@ -12,19 +12,22 @@ namespace NorthWindData.Data
             Context = new NorthwindContext();
         }
 
-        public IEnumerable<Category> GetCategories(int catid)
+        public List<Category> GetCategories()
         {
-            return Context.Categories.Where(c => c.CategoryID == catid);
+            //return Context.Categories.Where(c => c.CategoryID == catid);
+            return Context.Categories.ToList();
         }
 
-        public IEnumerable<Product> GetProductsByCategory(int catid)
+        public List<Product> GetProductsByCategory(int catid)
         {
-            return Context.Products.Where(p => p.CategoryID == catid);
+            return Context.Products.Where(p => p.CategoryID == catid).ToList();
         }
 
-        public IEnumerable<Order_Detail> GetOrdersByProduct(int proid)
+        public List<int> GetOrdersByProduct(int proid)
         {
-            return Context.Order_Details.Where(o => o.ProductID == proid);
+            return Context.Order_Details.Where(o => o.ProductID == proid)
+                .Select(od => od.ProductID).ToList();
+
         }
 
         public int GetQuantityByOrder(int ordnum, int proid)
