@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,12 +48,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\NorthWindRepository.cs" />
+    <Compile Include="Entities\Category.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Customer.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CustomerDemographic.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Dbctxgen.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dbctxgen.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Dbctxgen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Employee.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Order.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Order_Detail.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Product.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Region.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Shipper.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Supplier.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagram.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Territory.cs">
+      <DependentUpon>Dbctxgen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Entities\" />
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\NorthWindMdl.edmx" />
+    <None Include="Entities\Dbctxgen.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Dbctxgen.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\Dbctxgen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Dbctxgen.cs</LastGenOutput>
+    </None>
+    <None Include="Model\NorthWindMdl.edmx.diagram">
+      <DependentUpon>NorthWindMdl.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
